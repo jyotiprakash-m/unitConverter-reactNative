@@ -8,13 +8,16 @@
  * npm i convert-units
  * npm i react-native-reanimated
  * npm i react-native-gesture-handler
+ * npm i expo-font
  */
 
 import React, { useState,useEffect } from 'react'
-import { View, Text, StyleSheet, Dimensions,TextInput } from 'react-native'
+import { View, Text, StyleSheet, Dimensions,TextInput,Image } from 'react-native'
 import {TabView,TabBar} from 'react-native-tab-view'
 import convert  from 'convert-units'
 import {Picker} from '@react-native-picker/picker'
+
+// import {SimpleLineIconns} from '@expo/vector-icons'
 const measure = convert().measures()
 // console.log(measure)
 
@@ -54,6 +57,13 @@ const MeasureView = ({measure,value,setValue}) => {
                 />
           </View>
         </View>
+        <View style={styles.imageContainer}>
+        <Image
+          source={require('./down-arrow.png')}
+          style={styles.image}
+        />
+        </View>
+        
         <View style={styles.row}>
           <Picker style={styles.column} selectedValue = {toUnit} onValueChange={setToUnit}>
               {units.map((unit,index) => (
@@ -149,5 +159,15 @@ const styles = StyleSheet.create({
     borderColor:mainColor,
     borderBottomWidth:1,
     alignItems:'center'
+  },
+  imageContainer:{
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center'
+
+  },
+  image:{
+    width:40,
+    height:40
   }
 })
