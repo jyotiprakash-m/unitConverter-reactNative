@@ -14,3 +14,5 @@ npm i react-native-svg
 ```
 
 ## Demo
+
+<img src="./media/working-video.gif" alt="working of unitConverter"/>
